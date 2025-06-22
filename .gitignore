@@ -1,0 +1,7 @@
+# Ignore Python bytecode
+__pycache__/
+
+# Ignore custom data directories
+meets/
+rolling_schedule/
+sssad_data/

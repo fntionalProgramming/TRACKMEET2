@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Meet Manager</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1 id="Title">The Track Meet Manager </h1>
+
+    <button id="LoadDataButton">Load Data</button>
+
+    <p id="StatusText">The data from sssad and trackie website will be updating constantly so i recommend you always fetch new data when you use it</p>
+    
+    <div id="SortButtonContainer">
+      <div class="control-group">
+        <label for="ChooseMeet">Choose Meet:</label>
+        <select id="ChooseMeet"></select>
+      </div>
+      <div class="control-group">
+        <label for="SortBy">Sort By:</label>
+        <select id="SortBy">
+          <option value="Name">Athlete Name</option>
+          <option value="Time">Event Time</option>
+          <option value="Event">Event Name</option>
+          <option value="Team">School</option>
+          <option value="Specific-Location">Location</option>
+          <option value="Gender">Gender</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="FilterGender">Gender:</label>
+        <select id="FilterGender">
+          <option value="">All</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="FilterType">Event Type:</label>
+        <select id="FilterType">
+          <option value="">All</option>
+          <option value="field">Field</option>
+          <option value="track">Track</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="SearchInput">Search:</label>
+        <input
+        type="text"
+        id="SearchInput"
+        placeholder="Enter name, team, etc."
+        />
+        <button id="SearchButton">Search</button>
+      </div>
+    </div>
+    <div id="DataContainer">
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+  </html>
+  

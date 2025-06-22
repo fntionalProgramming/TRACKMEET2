@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
 }
 
@@ -30,6 +30,22 @@ body {
   background-color: #0056b3;
 }
 
+#StatusText {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+#DataContainer {
+  width: 90%;
+  max-width: 950px;
+  border: 1.5px solid black;
+  border-radius: 6px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+}
+
 #SortButtonContainer {
   border: 1.5px solid black;
   border-radius: 6px;
@@ -51,7 +67,6 @@ body {
   flex-wrap: wrap;
 }
 
-#SortButton,
 #SearchButton {
   padding: 8px 15px;
   background-color: #28a745;
@@ -63,7 +78,6 @@ body {
   transition: background-color 0.2s ease;
 }
 
-#SortButton:hover,
 #SearchButton:hover {
   background-color: #1e7e34;
 }
