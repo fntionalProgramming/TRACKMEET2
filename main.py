@@ -31,6 +31,9 @@ def load_data():
     # return a success response with the meets info
     return jsonify({"status": "success", "meets_info": meets_info})
 
+'''
+same function as above but this one is use to load the initial data
+'''
 @app.route('/load_initial_data', methods=['POST'])
 def load_initial_data():
     print("loading initial data")

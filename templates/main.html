@@ -22,15 +22,8 @@
         <select id="ChooseMeet"></select>
       </div>
       <div class="control-group">
-        <label for="SortBy">Sort By:</label>
-        <select id="SortBy">
-          <option value="Name">Athlete Name</option>
-          <option value="Time">Event Time</option>
-          <option value="Event">Event Name</option>
-          <option value="Team">School</option>
-          <option value="Specific-Location">Location</option>
-          <option value="Gender">Gender</option>
-        </select>
+        <label for="SortBySchool">Sort By School:</label>
+        <select id="SortBySchool"></select>
       </div>
       <div class="control-group">
         <label for="FilterGender">Gender:</label>
@@ -53,9 +46,17 @@
         <input
         type="text"
         id="SearchInput"
-        placeholder="Enter name, team, etc."
+        placeholder="Enter Athlete name."
         />
         <button id="SearchButton">Search</button>
+      </div>
+      <div class="control-group">
+        <label for="TimeSort">Choose Time:</label>
+        <select id="TimeSort">
+          <option value="">None</option>
+          <option value="">Earliest</option>
+          <option value="field">Oldest</option>
+        </select>
       </div>
     </div>
     <div id="DataContainer">
