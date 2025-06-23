@@ -42,7 +42,9 @@ def run_all_scrapper():
                                      event_input=option,
                                      base_website="https://www.trackie.com/calendar")
         meet_file_path = trackie_tracker.run_scrapper()
-        
+        if meet_file_path is None:
+            continue # skip if event does not exits yet
+
         print("Getting info from sssad.net/track-field")
         # start the SSSAD.net scrapper
         sssad_tracker = SSSadTracker(driver=driver,

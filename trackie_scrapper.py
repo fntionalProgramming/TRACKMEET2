@@ -26,7 +26,7 @@ class TrackieTracker:
             search_field.clear()
             search_field.send_keys(search_key)
             search_field.send_keys(Keys.RETURN)
-        def find_and_go_to_event(self: TrackieTracker, id_name, search_key, sleep_duration=2):
+        def find_and_go_to_event(self: TrackieTracker, id_name, search_key, sleep_duration=2) -> bool:
             '''
             find the calender list which contains the list of events
             check for upcoming events and see if the event is in there, other wise if it is not in there then go to the past section to check
@@ -50,7 +50,8 @@ class TrackieTracker:
                 # click right away on the first event
             # if the events in past is empty then raise an error because the events user is earching for does not exxits
             if events[0].text == "We did not find any events that match your search criteria...":
-                raise TrackieError(f"Error, event: '{search_key}' does not exits")
+                print(f"Error, event: '{search_key}' does not exits")
+                return None
             for event in events: 
                 if search_key in event.text:
                     participants_list_link = event.get_attribute("onclick") 
@@ -59,8 +60,10 @@ class TrackieTracker:
                         # -> https://www.trackie.com/entry-list/sssad-twilight-meet-4/1019615/
                     return participants_list_link
             if self.driver.current_url == self.base_website:
-                raise TrackieError(f"Error, event: '{search_key}' does not exits or hasnnot comes up yet!")
+                print(f"Error, event: '{search_key}' does not exits or hasnnot comes up yet!")
+                return None
             # function should not return here
+            return None
         def get_all_parcipitant(self: TrackieTracker, participant_list_link, entries_list_csss, entry_class, tr_row_class, date_class):
             '''
             function will use the participant link extracted from event
@@ -126,6 +129,8 @@ class TrackieTracker:
         participants_list_link = find_and_go_to_event(self=self,
                                                      id_name="calendar_list",
                                                      search_key=self.event_input)
+        if participants_list_link is None:
+            return None# exit early if the website does not exxits
         data, date_of_meet = get_all_parcipitant(self=self,
                                              participant_list_link=participants_list_link,
                                              entries_list_csss=[".entries_list", ".entries_list.floatRight"],
