@@ -5,7 +5,9 @@ this function will take a string in then clean all alhanumeric characters of it
 function clean_string(str) {
   return str.replace(/[^a-zA-Z0-9\s]/g, "").trim();
 }
-
+/*
+updates the displayed count of the entry
+*/
 function update_count(entries_amount, count_id = "Count") {
   count = document.getElementById(count_id);
   count.textContent = `Entries: ${entries_amount}`;
@@ -49,7 +51,7 @@ function get_school_event_category(meets_info) {
   return { schools, events, categories };
 }
 /*
-this function will sort each rows by school
+this function will update the school and event filter becaue it requires dynamic fetching 
 */
 function update_schoolevent_filter(
   status_text_id = "StatusText",
@@ -108,6 +110,9 @@ function update_schoolevent_filter(
   });
 }
 
+/*
+add button for when user change the kind of meets
+*/
 function add_choose_meets(
   status_text_id = "StatusText",
   choose_meet_id = "ChooseMeet",
@@ -197,7 +202,9 @@ function add_choose_meets(
     filter_and_render_table();
   });
 }
-
+/*
+this function add the button that when clicked on will run alll the scrappers 
+*/
 function add_load_data_button(
   button_id = "LoadDataButton",
   status_text_id = "StatusText",
@@ -251,6 +258,11 @@ function add_load_data_button(
   });
 }
 
+/*
+this func tion basicaly check if ther eis alreayd data in the rolling schedule exits already, if there are display them
+also you have to send a fetch request because the web environment is sandboxed there fore cannot communicate 
+directly with the file systems
+*/
 function load_initial_data(choose_meet_id = "ChooseMeet") {
   const status_text = document.getElementById("StatusText");
   fetch("/load_initial_data", { method: "POST" })
@@ -288,6 +300,13 @@ function load_initial_data(choose_meet_id = "ChooseMeet") {
     });
 }
 
+/*
+this function will basically looks at all the filter there are school filter
+gender filter
+event type and blah blah 
+and check if they exits
+if the filter exits applied it to the data frame
+*/
 function filter_and_render_table(
   choose_meet_id = "ChooseMeet",
   status_text_id = "StatusText",
@@ -455,6 +474,12 @@ function setup_filters(
   });
 }
 
+/*
+thi function will set up the functionality for the search button by assigning event listner to
+the search button
+the enter button
+live earch via input changes
+*/
 function setup_search(
   search_input_id = "SearchInput",
   search_button_id = "SearchButton",
@@ -470,7 +495,7 @@ function setup_search(
 ) {
   const searchButton = document.getElementById(search_button_id);
   const searchInput = document.getElementById(search_input_id);
-
+  // add a click event listener to the search button
   searchButton.addEventListener("click", () => {
     filter_and_render_table(
       choose_meet_id,
@@ -490,6 +515,23 @@ function setup_search(
     if (e.key === "Enter") {
       searchButton.click();
     }
+  });
+  // this event listener will make the live search effect 
+  // this work because you are re rendering the entire table everytime the input field change
+  // and the input field change as you are typing
+  searchInput.addEventListener("input", () => {
+    filter_and_render_table(
+      choose_meet_id,
+      status_text_id,
+      data_container_id,
+      sort_by_school_id,
+      sort_by_gender_id,
+      sort_by_type_id,
+      sort_by_time_id,
+      sort_by_event_id,
+      sort_by_category_id,
+      searchInput.value.trim()
+    );
   });
 }
 
