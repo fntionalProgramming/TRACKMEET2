@@ -52,3 +52,8 @@ ctrl+click on the link displayed
 ___
 
 PROJECT BY MINH (ANDREW) HUY NGUYEN
+
+<br>
+github_link
+<br>
+https://github.com/fntionalProgramming/Track-Meet-Manager-2
