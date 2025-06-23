@@ -13,7 +13,6 @@
     <h1 id="Title">The Track Meet Manager </h1>
 
     <button id="LoadDataButton">Load Data</button>
-
     <p id="StatusText">The data from sssad and trackie website will be updating constantly so i recommend you always fetch new data when you use it</p>
     
     <div id="SortButtonContainer">
@@ -22,24 +21,48 @@
         <select id="ChooseMeet"></select>
       </div>
       <div class="control-group">
-        <label for="SortBySchool">Sort By School:</label>
+        <label for="SortBySchool">School:</label>
         <select id="SortBySchool"></select>
       </div>
       <div class="control-group">
-        <label for="FilterGender">Gender:</label>
-        <select id="FilterGender">
+        <label for="SortByGender">Gender:</label>
+        <select id="SortByGender">
           <option value="">All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="control-group">
-        <label for="FilterType">Event Type:</label>
-        <select id="FilterType">
+        <label for="SortByType">Event Type:</label>
+        <select id="SortByType">
           <option value="">All</option>
           <option value="field">Field</option>
           <option value="track">Track</option>
         </select>
+      </div>
+      <div class="control-group">
+        <label for="SortByType">Event Type:</label>
+        <select id="SortByType">
+          <option value="">All</option>
+          <option value="field">Field</option>
+          <option value="track">Track</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="SortByTime">Choose Time:</label>
+        <select id="SortByTime">
+          <option value="">None</option>
+          <option value="Earliest">Earliest</option>
+          <option value="Oldest">Oldest</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="SortByCategory">Category: </label>
+        <select id="SortByCategory"></select>
+      </div>
+      <div class="control-group">
+        <label for="SortByEvent">Event: </label>
+        <select id="SortByEvent"></select>
       </div>
       <div class="control-group">
         <label for="SearchInput">Search:</label>
@@ -50,17 +73,9 @@
         />
         <button id="SearchButton">Search</button>
       </div>
-      <div class="control-group">
-        <label for="TimeSort">Choose Time:</label>
-        <select id="TimeSort">
-          <option value="">None</option>
-          <option value="">Earliest</option>
-          <option value="field">Oldest</option>
-        </select>
-      </div>
     </div>
-    <div id="DataContainer">
-    </div>
+    <h2 id="Count">Entries: 14</h2>
+    <div id="DataContainer"></div>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
   </html>
