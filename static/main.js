@@ -535,12 +535,21 @@ function setup_search(
   });
 }
 
+function add_print_button(print_button_id="PrintButton", data_container_id="DataContainer") {
+  const print_button = document.getElementById(print_button_id)
+  const data_container = document.getElementById(data_container_id)
+  print_button.addEventListener('click', () => {
+    print(data_container)
+  })
+}
+
 function main() {
   load_initial_data();
   add_load_data_button();
   add_choose_meets();
   setup_filters();
   setup_search();
+  add_print_button();
 }
 
 main();
