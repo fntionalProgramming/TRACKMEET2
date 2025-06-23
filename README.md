@@ -17,6 +17,8 @@ ___
 
 **There are ALOTS alot alot of malformed data in trackie website and sssad website so my scrapping won't be 100% correct**
 <br>
+**Some time there are categories like Unknown which is basically impossible to parse**
+<br>
 **To use this code**
 <br>
 <br>
@@ -27,8 +29,25 @@ pip install webdriver-manager <br>
 pip install selenium <br>
 pip install pandas <br>
 pip install Flask <br><br>
-then after that to run the code just go to the main file then run it
-
+then after that to run the code just go to the main file then run it 
+after you run the code you should see something like this
+<br><br>
+ * Serving Flask app 'main' <br>
+ * Debug mode: on <br>
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. <br>
+ * Running on http://127.0.0.1:5000 <br>
+Press CTRL+C to quit <br>
+ * Restarting with stat <br>
+ * Debugger is active! <br>
+ * Debugger PIN: 466-346-204 <br>
+127.0.0.1 - - [22/Jun/2025 21:26:26] "GET / HTTP/1.1" 200 - <br>
+127.0.0.1 - - [22/Jun/2025 21:26:26] "GET /static/style.css HTTP/1.1" 200 - <br>
+127.0.0.1 - - [22/Jun/2025 21:26:26] "GET /static/main.js HTTP/1.1" 200 - <br>
+127.0.0.1 - - [22/Jun/2025 21:26:26] "GET /static/main.js HTTP/1.1" 200 - <br>
+loading initial data <br>
+127.0.0.1 - - [22/Jun/2025 21:26:26] "POST /load_initial_data HTTP/1.1" 200 - <br>
+<br>
+ctrl+click on the link displayed
 ___
 
 PROJECT BY MINH (ANDREW) HUY NGUYEN

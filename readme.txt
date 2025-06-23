@@ -1,1 +1,0 @@
-These are some important notes before using the tracker

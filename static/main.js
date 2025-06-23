@@ -259,6 +259,10 @@ function load_initial_data(choose_meet_id = "ChooseMeet") {
       return response.json();
     })
     .then((json) => {
+      if (json.status === "unsuccessful") {
+        status_text.innerHTML = json.error_message;
+        return;
+      }
       localStorage.setItem(TRACK_DATA, JSON.stringify(json.meets_info));
       const choose_meet_select = document.getElementById(choose_meet_id);
       // clear the preivous options

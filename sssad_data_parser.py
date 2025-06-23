@@ -1,5 +1,6 @@
 import pandas as pd
 from noramalize_functions import normalize_sssad_events, normalize_trackie_events, normalize_sssad_category
+from io import StringIO
 
 class SSSadDataParserError(Exception):
     pass
@@ -31,9 +32,6 @@ class SSSadDataParser:
             'JB': "male",
             'SB': "male",
         }
-    def convert_categorySSSAD_to_trackie_format(self, category_sssad):
-        cat = self.category_map[category_sssad].split(" ")
-        return cat[0], cat[1]
     def parse_twilight_schedule(self):
         '''
         the first snippet wil delete the first row unptil the index of Rolling Schedule 
@@ -90,11 +88,12 @@ class SSSadDataParser:
         data_frame_sssad = data_frame_sssad.reset_index(drop=True)
         # iterating
         current_time = None
+
         for _, row in data_frame_sssad.iterrows():
             time = row.iloc[0]
 
             # if there is no row then just skip it
-            if pd.isna(time) or pd.isna(row.iloc[1]) or pd.isna(row.iloc[2]):
+            if pd.isna(row.iloc[1]) or pd.isna(row.iloc[2]):
                 continue
 
             if current_time == None: 
@@ -111,6 +110,7 @@ class SSSadDataParser:
                     continue
                 gender = self.gender_map[category]
                 category = self.category_map[category]
+                # print(event, category, gender)
 
                 # get the rows and column with the corresponding normalized row and category 
                 match_filter = (
@@ -164,9 +164,9 @@ class SSSadDataParser:
         # now iterate over each row, assign it proper time aswell as event and location
         data_frame_sssad = data_frame_sssad.iloc[1:]
         data_frame_sssad = data_frame_sssad.reset_index(drop=True)
-        
         for _, row in data_frame_sssad.iterrows():
             time = row.iloc[0]
+            
             if pd.isna(time):
                 break
             for i in range(1,row_len + 1):
@@ -176,6 +176,8 @@ class SSSadDataParser:
                 # convert everything to proper trackie format
                 categories = normalize_sssad_category(raw_category)
                 event, location = events_list[i]
+
+                
                 for category in categories:
                     if category not in self.gender_map or category not in self.category_map:
                         continue

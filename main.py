@@ -38,6 +38,8 @@ same function as above but this one is use to load the initial data
 def load_initial_data():
     print("loading initial data")
     rolling_schedule_dir = Path("rolling_schedule")
+    if not rolling_schedule_dir.exists():
+        return jsonify({"status": "unsuccessful", "error_message": "Please press load_data_button inorder to get data of athletes!<br>The data from sssad and trackie website will be updating constantly so i recommend you always fetch new data when you use it"})
     meets_info = []
     for file_path in rolling_schedule_dir.iterdir():
         if file_path.is_file() and file_path.suffix == '.csv':

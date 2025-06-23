@@ -1,12 +1,23 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
+from pathlib import Path
 from trackie_scrapper import TrackieTracker
 from sssad_scrapper import SSSadTracker 
 from sssad_data_parser import SSSadDataParser
 
+
 if __name__ == "__main__":
+    # creating the folder which will be use for storing data from the tracker
+    dir_path1 = Path("meets")
+    dir_path1.mkdir(parents=True, exist_ok=True)
+
+    dir_path2 = Path("rolling_schedule")
+    dir_path2.mkdir(parents=True, exist_ok=True)
+
+    dir_path3 = Path("sssad_data")
+    dir_path3.mkdir(parents=True, exist_ok=True)
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     options = ["SSSAD City Championships", "SSSAD Twilight Meet #4", "SSSAD Twilight Meet #3", "SSSAD Twilight Meet #2", "SSSAD Twilight Meet #1"]
     print("Welcome to the track meet manager!")
