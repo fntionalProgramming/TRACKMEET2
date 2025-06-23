@@ -13,3 +13,18 @@ version 10: Added logic for showing the data -> choose_meet<br>
 version 11: Added logic for showing data -> school<br>
 Version 12: Generalize filter by school logic to fit Gender, Event Type, Event, Category, Choose Time and Event<br>
 version 13: Added Search filter<br>
+
+*There are ALOTS alot alot of malformed data in trackie website and sssad website so my scrapping won't be 100% correct
+<br>
+*To use this code
+<br>
+First install these pakages
+pip if you do not already had it<br>
+after use these commandas <br>
+pip install webdriver-manager <br>
+pip install selenium <br>
+pip install pandas <br>
+pip install Flask <br><br>
+then after that to run the code just go to the main file then run it
+
+PROJECT BY MINH (ANDREW) HUY NGUYEN
