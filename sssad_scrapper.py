@@ -43,7 +43,7 @@ class SSSadTracker:
                 return file_name
 
     def go_to_csv_page_CHAMPIONSHIP(self):
-        self.driver.find_element(By.CSS_SELECTOR, ".et_pb_row.et_pb_row_1.et_pb_row_5col")
+        pass
 
     def run_scrapper(self):
         '''
