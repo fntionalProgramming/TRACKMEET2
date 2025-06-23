@@ -20,6 +20,8 @@ ___
 <br>
 **Some time there are categories like Unknown which is basically impossible to parse**
 <br>
+**Cannot parse championships game due to ambiguity and different format**
+<br>
 **To use this code**
 <br>
 <br>
